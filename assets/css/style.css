@@ -121,7 +121,7 @@ body {
   
   width: 100%;
   z-index: 1;
-  background-color: rgba(85, 85, 85, 0.219);
+  background-color: #0000003f;
 
   transition: all .3s;
 }
@@ -162,6 +162,7 @@ body {
   width: 20px;
   height: 20px;
 
+  filter: invert(1);
   transition: all .3s;
 }
 
@@ -185,7 +186,7 @@ body {
     padding-block: 4rem;
 
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0);
-    background-color: rgb(58 54 62);
+    background-color: #000000;
 
     transition: all .3s;
 
@@ -294,6 +295,10 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.home__btns {
+  margin-top: 3rem;
+}
+
 .home__title span {
   color: var(--btn-bg);
 }
@@ -333,7 +338,7 @@ body {
 
 .advantages__slider-container {
   gap: 3rem;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(6 , auto);
 }
 
 .advantages__desc {
@@ -353,6 +358,75 @@ body {
 
 .advantages__title {
   margin-bottom: 1.5rem;
+}
+
+.advantages__slider {
+  display: flex;
+  max-width: 1090px;
+  position: relative;
+
+  margin-top: 3rem;
+}
+
+.advantages__card-title {
+  font-size: 1em;
+}
+
+.advantages__slider i {
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  margin-top: -2rem;
+  margin-left: 1.5rem;
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+
+.advantages__slider svg {
+  filter: invert(1);
+  width: 30px;
+  height: 30px;
+}
+
+.advantages__slider i:active{
+  transform: translateY(-50%) scale(0.9);
+}
+
+.advantages__slider i:first-child{
+  padding: .1rem;
+  border-radius: 5px;
+  background-color: var(--article-color);
+
+  left: -22px;  
+  display: none;
+}
+
+.advantages__slider i:last-child{
+  padding: .1rem;
+  border-radius: 5px;
+  background-color: var(--article-color);
+
+  left: 1rem;
+}
+
+.advantages__slider .advantages__slider-data {
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  max-width: 85vw;
+}
+
+.advantages__slider-data.dragging{
+  cursor: grab;
+  scroll-behavior: auto;
+}
+
+.advantages__slider-data.dragging article{
+  pointer-events: none;
+}
+.advantages__slider-data article:first-child{
+  margin-left: 0px;
 }
 
 /* teams */
@@ -402,13 +476,16 @@ body {
 .teams__slider-card-img {
   justify-self: center;
   margin-top: 1.5rem;
-  width: 100px;
+
+  height: 250px;
+  border-radius: 100%;
 }
 
 /* study */
 .study__container {
   gap: 1.5rem;
 }
+
 .study__title {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -418,11 +495,24 @@ body {
   padding: 1rem;
   border-radius: 15px;
   border: 2px solid var(--btn-bg);
+
+  transition: all .3s;
+}
+
+.study__card:hover {
+  background-color: var(--btn-bg);
+
+  transform: scale(1.1);
+}
+
+.study__card-desc {
+  font-size: 1em;
 }
 
 /* items */
 .items__card {
   padding: 1rem;
+  text-align: center;
   border-radius: 15px;
   background-color: var(--article-color);
 }
@@ -447,6 +537,48 @@ body {
   margin-bottom: 1rem;
 }
 
+/* salles */
+
+.salles__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+.salles__card {
+  padding: 1.5rem;
+  border-radius: 15px;
+  background-color: var(--btn-bg);
+}
+
+.salles__card-title {
+  color: var(--text-color);
+  text-align: center;
+  font-size: 1em;
+  font-weight: 800;
+}
+
+.salles__card-data {
+  cursor: pointer;
+
+  border: 2px solid var(--btn-bg);
+  transition: all .3s;
+}
+
+.salles__card-data-desc {
+  font-size: 1em;
+}
+
+.salles__card-data:hover {
+  border-radius: 15px;
+  border: 2px solid var(--title-color);
+}
+
+.salles__card-data-title {
+  font-size: 3em;
+  font-weight: 500;
+  color: var(--text-color);
+}
 /* reviews */
 
 .reviews__card {
@@ -569,12 +701,13 @@ body {
 }
 
 .footer__description {
-  color: var(--title-color);
+  color: var(--desc-color);
   margin-top: 1rem;
 }
 
 .footer__logo, 
 .footer__title {
+  color: var(--text-color);
   font-size: var(--logo-font-size);
   margin-bottom: 1.5rem;
 }
@@ -587,7 +720,7 @@ body {
 }
 
 .footer__link {
-  color: var(--title-color);
+  color: var(--desc-color);
   transition: all .4s;
 }
 
@@ -612,7 +745,7 @@ body {
   text-align: center;
   
   font-size: var(--desc-font-size);
-  color: var(--title-color);
+  color: var(--text-color);
 }
 
 /* media */
@@ -623,13 +756,21 @@ body {
     grid-template-columns: repeat(3, auto);
   }
 
+  .salles__card-title {
+    font-size: 3.5em;
+  }  
+
+  .advantages__card-title {
+    font-size: 2em;
+  }
+
+  .study__card-desc {
+    font-size: 1.4em;
+  }
+
   .reviews__slider-container {
     gap: 3rem;
     grid-template-columns: repeat(2, auto);
-  }
-
-  .header {
-    backdrop-filter: blur(1rem);
   }
 
   .home__title {
@@ -644,7 +785,7 @@ body {
     width: 250px;
   }
   
-  .advantages__container, .reviews__container {
+  .reviews__container {
     gap: 1.5rem;
     grid-template-columns: repeat(2, auto);
   }
@@ -665,39 +806,16 @@ body {
     gap: 1.5rem;
   }
 
-  
-
-  /* STYUD */
-  .study__container {
-    gap: 1.5rem;
-    grid: repeat(4, 75px) / repeat(13, 75px)
-  }
-  .study__card-1 {
-    grid-area: 1 / 1 / span 3 / span 5;
+  .salles__container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: .5rem;
   }
   
-   .study__card-2 {
-    grid-area: 1 / 6 / span 3 / span 3;
-  }
-  
-  .study__card-3 {
-    grid-area: 1 / 9 / span 3 / span 5;
-  }  
-  
-  .study__card-4 {
-    grid-area: 4 / 1 / span 7 / span 3;
-  }
-  
-  .study__card-5 {
-    grid-area: 4 / 4 / span 7 / span 6;
-  }
-  
-  .study__card-6 {
-    grid-area: 4 / 10 / span 3 / span 4;
-  }
-  
-  .study__card-7 {
-    grid-area: 7 / 10 / span 4 / span 4;
+  .salles__card-container {
+    text-align: center;
+    grid-template-columns: repeat(3, auto);
+    gap: 1rem;
   }
 }
 
@@ -714,70 +832,44 @@ body {
   .nav__toggle, .nav__close {
     display: none;
   }
-}
 
-.advantages__slider {
-  display: flex;
-  max-width: 1090px;
-  position: relative;
-}
+  .advantages__container, .reviews__container {
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, auto);
+  }
 
-.advantages__slider i {
-  top: 50%;
-  height: 44px;
-  width: 44px;
-  color: #343F4F;
-  cursor: pointer;
-  font-size: 1.15rem;
-  position: absolute;
-  text-align: center;
-  line-height: 44px;
-  background: #fff;
-  border-radius: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.1s linear;
-}
-
-.advantages__slider svg {
-  width: 30px;
-  height: 30px;
-}
-
-.advantages__slider i:active{
-  transform: translateY(-50%) scale(0.9);
-}
-
-.advantages__slider i:hover{
-  background: #f2f2f2;
-}
-
-.advantages__slider i:first-child{
-  left: -22px;
-  display: none;
-}
-
-.advantages__slider i:last-child{
-  right: -22px;
-}
-
-.advantages__slider .advantages__slider-data {
-  cursor: pointer;
-  overflow: hidden;
-  white-space: nowrap;
-  scroll-behavior: smooth;
-  max-width: 85vw;
-}
-
-.advantages__slider-data.dragging{
-  cursor: grab;
-  scroll-behavior: auto;
-}
-
-.advantages__slider-data.dragging article{
-  pointer-events: none;
-}
-.advantages__slider-data article:first-child{
-  margin-left: 0px;
+  /* STYUD */
+  .study__container {
+    gap: 1.5rem;
+    grid: repeat(4, 75px) / repeat(13, 75px)
+  }
+  .study__card-1 {
+    grid-area: 1 / 1 / span 3 / span 5;
+  }
+  
+   .study__card-2 {
+    grid-area: 1 / 6 / span 3 / span 3;
+  }
+  
+  .study__card-3 {
+    grid-area: 1 / 9 / span 3 / span 6;
+  }  
+  
+  .study__card-4 {
+    grid-area: 4 / 1 / span 7 / span 3;
+  }
+  
+  .study__card-5 {
+    grid-area: 4 / 4 / span 7 / span 6;
+  }
+  
+  .study__card-6 {
+    grid-area: 4 / 10 / span 7 / span 5;
+  }
+  
+  .study__card-7 {
+    grid-area: 7 / 11 / span 4 / span 4;
+  }
 }
 
 @media screen and (max-width: 900px) {

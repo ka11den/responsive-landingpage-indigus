@@ -19,21 +19,20 @@ if (navClose) {
 const sections = document.querySelectorAll('section[id]')
 
 function scrollActive() {
-    const scrollY = window.pageYOffset
+  const scrollY = window.pageYOffset
 
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight
-      const sectionTop = current.offsetTop - 50;
-      sectionId = current.getAttribute('id')
+  sections.forEach(current => {
+    const sectionHeight = current.offsetHeight
+    const sectionTop = current.offsetTop - 50;
+    sectionId = current.getAttribute('id')
 
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active')
-      } else {
-        document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active')
-      }
-    })
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active')
+    } else {
+      document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active')
+    }
+  })
 }
-window.addEventListener('scroll', scrollActive)
 
 // slider
 const carousel = document.querySelector(".advantages__slider-data");
@@ -105,26 +104,69 @@ document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("touchend", dragStop);
 
 // teams
-
 const teams = [
   {
     id: 1,
-    fio: "Степанова Татьяна Юрьевна 0",
+    fio: "Степанова Татьяна Юрьевна",
+    desc: "",
     img: "./assets/img/teams__1.png",
     cat: "Английский Язык"
   },
   {
     id: 2,
-    fio: "Степанова Татьяна Юрьевна 1",
-    img: "./assets/img/teams__1.png",
-    cat: "Русский Язык"
-  }
-  ,
+    fio: "Рачинская Ольга Игоревна",
+    desc: "",
+    img: "./assets/img/teams__22.png",
+    cat: "Английский Язык"
+  },
   {
     id: 3,
-    fio: "Степанова Татьяна Юрьевна 1",
-    img: "./assets/img/teams__1.png",
-    cat: "Русский Язык"
+    fio: "Бойдиэль София Мохамеденовна",
+    desc: "",
+    img: "./assets/img/teams__7.jpg",
+    cat: "Английский Язык"
+  },
+  {
+    id: 4,
+    fio: "Савинова Елена Юрьевна",
+    desc: "",
+    img: "./assets/img/teams__4.jpg",
+    cat: "Начальные классы"
+  },
+  {
+    id: 5,
+    fio: "Данилова Анна Владимировна",
+    desc: "",
+    img: "./assets/img/teams__2.jpg",
+    cat: "Английский Язык"
+  },
+  {
+    id: 6,
+    fio: "Улюмджиева Гиляна Саналовна",
+    desc: "",
+    img: "./assets/img/teams__6.jpg",
+    cat: "Английский Язык"
+  },
+  {
+    id: 7,
+    fio: "Секерина Марина Игоревна",
+    desc: "",
+    img: "./assets/img/teams__8.jpg",
+    cat: "Английский Язык"
+  },
+  {
+    id: 8,
+    fio: "Кораблева Елена Павловна",
+    desc: "",
+    img: "./assets/img/teams__5.jpg",
+    cat: "Английский Язык"
+  },
+  {
+    id: 9 ,
+    fio: "Карпова Полина Евгеньевна",
+    desc: "",
+    img: "./assets/img/teams__3.jpg",
+    cat: "Английский Язык"
   }
 ]
 
@@ -155,7 +197,7 @@ const displayTeams = (filterTeams) => {
 const setCategories = () => {
   const allCats = teams.map((item) => item.cat);
   const categories = [
-    "All",
+    "Все",
 
     ...allCats.filter((item, i) => {
       return allCats.indexOf(item) === i;
@@ -177,7 +219,7 @@ const setCategories = () => {
     teamsCat.addEventListener("click", (e) => {
     const selectedCat = e.target.textContent;
 
-    selectedCat === "All"
+    selectedCat === "Все"
       ? displayTeams(teams)
       : displayTeams(teams.filter((item) => item.cat === selectedCat));
   });
@@ -185,3 +227,4 @@ const setCategories = () => {
 
 setCategories()
 displayTeams(teams);
+window.addEventListener('scroll', scrollActive)
