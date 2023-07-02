@@ -3,7 +3,7 @@
 /* base */
 
 :root {
-  --header-height: 3rem;
+  --header-height: 4rem;
 
   /* fonts */
 
@@ -121,7 +121,7 @@ body {
   
   width: 100%;
   z-index: 1;
-  background-color: #0000003f;
+  background-color: #0000007e;
 
   transition: all .3s;
 }
@@ -140,9 +140,7 @@ body {
   align-items: center;
   gap: .5rem;
 
-  font-size: var(--logo-font-size);
-  font-weight: var(--font-medium);
-  color: var(--btn-bg);
+  width: 70px;
 
   transition: all .3s;
 }
@@ -432,7 +430,12 @@ body {
 /* teams */
 .teams__container {
   display: flex;
+  gap: 2rem;
   flex-direction: column;
+}
+
+.teams__title {
+  margin-bottom: 1.5rem;
 }
 
 .teams__list {
@@ -451,9 +454,8 @@ body {
   color: var(--btn-bg);
 }
 
-.teams__slider-content {
+.teams__slider-card {
   padding: 1rem;
-  gap: 2rem;
   display: grid;
   border-radius: 15px;
   background-color: var(--btn-bg);
@@ -559,19 +561,13 @@ body {
 }
 
 .salles__card-data {
-  cursor: pointer;
-
   border: 2px solid var(--btn-bg);
   transition: all .3s;
 }
 
 .salles__card-data-desc {
   font-size: 1em;
-}
-
-.salles__card-data:hover {
-  border-radius: 15px;
-  border: 2px solid var(--title-color);
+  color: var(--text-color);
 }
 
 .salles__card-data-title {
@@ -673,6 +669,19 @@ body {
 
   border: 2px solid var(--btn-bg);
   border-radius: 100%;
+}
+
+
+/* news */
+
+.news__title {
+  margin-bottom: 1.5rem;
+}
+.news__card {
+  margin: 0 auto;
+}
+.news__img {
+  width: 500px;
 }
 
 /* footer */
@@ -835,6 +844,12 @@ body {
 
   .advantages__container, .reviews__container {
     gap: 1.5rem;
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .teams__container {
+    display: grid;
+    gap: 1rem;
     grid-template-columns: repeat(2, auto);
   }
 

@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="shortcut icon" href="./assets/img/logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <title>Индигус - центр общего развития</title>
+  <style>
+    .swiper-slide, swiper-slide {
+      display: grid;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
 
@@ -12,13 +20,13 @@
   <header class="header">
     <nav class="nav container">
       <a href="#" class="nav__logo">
-        Индигус
+        <img src="./assets/img/logo.png" />
       </a>
 
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__list">
           <li class="nav__item">
-            <a href="#home" class="nav__link active">Главная</a>
+            <a href="#home" class="nav__link">Главная</a>
           </li>
           <li class="nav__item">
             <a href="#advantages" class="nav__link">Приемущества</a>
@@ -131,23 +139,12 @@
   </section>
 
   <!-- teams -->
-  <section class="teams section" id="teams">
-    <div class="teams__container container grid">
-      <div class="teams__data">
-        <h1 class="teams__title">
-          Наши преподаватели
-        </h1>
+  <section class="teams container section" id="teams">
+    <h1 class="teams__title">
+      Наши преподаватели
+    </h1>
+    <div class="teams__container grid">
 
-        <ul class="teams__list">
-        </ul>
-      </div>
-    </div>
-
-      <div class="teams__slider-container">
-        <div class="teams__slider-content">
-
-        </div>
-      </div>
     </div>
   </section>
 
@@ -283,6 +280,27 @@
     </div>
   </section>
 
+  <!-- news -->
+  <section class="news section container" id="news">
+    <h1 class="news__title">
+      Новости
+    </h1>
+    <div class="news__container grid">
+      <article class="news__card">
+        <img class="news__img" src="./assets/img/IMG_0370.webp" />
+      </article>
+      <article class="news__card">
+        <img class="news__img" src="./assets/img/IMG_1281.webp" />
+      </article>
+      <article class="news__card">
+        <img class="news__img" src="./assets/img/IMG_8617.webp" />
+      </article>
+      <article class="news__card">
+        <img class="news__img" src="./assets/img/IMG_9139.webp" />
+      </article>
+    </div>
+  </section>
+
   <footer class="footer section" id="footer">
     <div class="footer__container container grid">
       
@@ -354,9 +372,18 @@
     </div>  
 
     <span class="footer__copy">&#169; Индигус. Все права защищены</span>
-  </footer>
+  </footer> 
+  
 
   <!-- script -->
   <script src="./assets/js/main.js"></script>
+  
+   <!-- Swiper JS -->
+   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+   <!-- Initialize Swiper -->
+   <script>
+     var swiper = new Swiper(".mySwiper", {});
+   </script>
 </body>
 </html>
